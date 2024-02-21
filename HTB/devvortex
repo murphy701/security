@@ -39,4 +39,4 @@ ssh logan@10.10.11.242 이후 pw 입력(tequieromucho)
 sudo /usr/bin/apport-cli -f
 
 리포트를 하는 프로그램 사용 중 마지막 단계에 view report에서 !/bin/bash를 붙여넣기 할 경우 루트 권한을 획득하는 취약점을 이용
-권한 획득 후 /root/root.txt의 flag값 읽
+권한 획득 후 /root/root.txt의 flag값 읽기
