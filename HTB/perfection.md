@@ -5,7 +5,7 @@
 - category1=1&grade=50&weight=1…
     - SSTI에 취약함
 - burpsuite로 테스트를 진행한다.
-    - 입력 값을 넣는 곳에 %0A를 넣고 ` ` 안에 스크립트를 삽입한 후 스크립트 전체를 url인코딩하여 실행한다.
+    - 입력 값을 넣는 곳에 %0A를 넣고 \` \` 안에 스크립트를 삽입한 후 스크립트 전체를 url인코딩하여 실행한다.
         - %0A=\n(개행문자)
         - 개행 문자를 넣은 이유는 스크립트를 그냥 삽입할 경우 malicious code detected 경고가 나와 필터링을 하고 있는 것을 알아차릴 수 있기 때문에 우회 목적으로 넣음
 - 반복적인 코드를 템플릿 문서로 만드는 구조로 되어 있다.
@@ -40,8 +40,7 @@
     - chmod +x linpeas.sh로 하여 실행
 - linpeas 결과 중 mail결과에서 pw format을 찾을 수 있다.
     - {firstname_firstname}_{reversed_random}_{integer between1 and 1billion}
-        
-                                                                             1000000000(9자리 수)
+                                                  1000000000(9자리 수)
         
 - hashcat -m 1400 -a 3 susan.txt susan_nasus_?d?d?d?d?d?d?d?d?d
     - -a 3: brute force mode
