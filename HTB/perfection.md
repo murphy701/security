@@ -40,7 +40,7 @@
     - chmod +x linpeas.sh로 하여 실행
 - linpeas 결과 중 mail결과에서 pw format을 찾을 수 있다.
     - {firstname_firstname}_{reversed_random}_{integer between1 and 1billion}
-                                                  1000000000(9자리 수)
+    -                                             1000000000(9자리 수)
         
 - hashcat -m 1400 -a 3 susan.txt susan_nasus_?d?d?d?d?d?d?d?d?d
     - -a 3: brute force mode
