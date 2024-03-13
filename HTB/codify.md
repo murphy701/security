@@ -10,7 +10,7 @@
   - 에러를 발생시켜 오버라이딩한 내용을 실행
   - access objects created outside the sandbox and execute arbitrary code
 - 해당 코드를 사용하여 실행한다.
-</br>
+
 ```
 const {VM}=require("vm2");
 const vm=new VM();
