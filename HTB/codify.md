@@ -40,7 +40,7 @@ vm.run(code);
   - joshua 폴더로 이동할 수 없었다.
   - /var/www/contact/tickets.db 파일에서 pw 해시 값을 얻을 수 있었다.
 - john pw.txt --wordlist=/usr/share/wordlists/rockyou.txt로 비밀번호 크랙을 시도한다.
-- spongebob1 값을 찾았고 이를 사용하여 ssh joshua@10.10.11.239로 접속을 시도한다.
+- spongebob1 값을 찾았고 이를 사용하여 ssh joshua@10.10.11.239로 접속을 시도한다.</br>
 
   ### ssh로 연결 한 후
 - sudo -l로 sudo 권한으로 실행할 수 있는 파일인 mysql-backup.sh를 찾을 수 있다.
@@ -50,7 +50,7 @@ vm.run(code);
   - 스크립트 파일안에 pw를 검증하는 코드가 있는데 DB_PASS==USER_PASS에서 USER_PASS가 " " 안에 없을 경우 문자열로 인식하지 않고 pattern matching을 사용한다
   - 한 글자씩 비교하고 정규표현식으로 *를 넣어 패스워드를 비교한다
   - crack1.py를 만들고 python3 crack1.py로 실행하여 pw를 찾는다
-  - 찾은 pw로 su root를 실행하여 root.txt를 찾는다
+  - 찾은 pw로 su root를 실행하여 root.txt를 찾는다</br>
 
   ### 결론
 - nodejs 코드 실행기에서 샌드박스 이스케이프를 활용하여 코드를 실행
