@@ -1,6 +1,5 @@
 # hack the box: perfection
-## 사용된 취약점
-## SSTI
+## 사용된 취약점: SSTI
 - SSTI(Server Side Template Injection)취약점: 웹 어플리케이션에 적용되어 있는 웹 템플릿 엔진(Web Template Engine)에 공격자의 공격 코드가 템플릿에 포함된 상태에서 서버 측에서 템플릿 인젝션이 발현되는 공격을 의미
 
 - category1=1&grade=50&weight=1…
