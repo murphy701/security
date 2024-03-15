@@ -1,5 +1,6 @@
-### 초기 침투
 ### 사용한 취약점: metabase 원격 코드 실행, 우분투 커널 취약점(권한 상승)
+### 초기 침투
+
 - metabase 로그인 페이지를 찾음
   - metabase: 오픈 소스 business intelligence tool
   - 임의 코드 실행 취약점을 이용
