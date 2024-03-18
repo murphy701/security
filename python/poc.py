@@ -1,5 +1,6 @@
 #found this exploit on http://github.com/heapbytes/CVE-2023-26035
 #zoneminder exploit code
+#used for htb surveillance
 import requests
 import argparse
 from lxml import html
