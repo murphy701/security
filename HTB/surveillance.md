@@ -61,7 +61,7 @@
 ### htb에서 root권한 스크립트를 통한 권한상승을 많이 봄
 - root권한으로 실행하거나 /bin/sh로 명령어를 실행하는 스크립트를 이용하여 권한 상승을 시도한다.
 ### web.config, url 재작성하는 설정파일
-
+![gobuster](https://github.com/murphy701/security/assets/50907298/d7928a50-f34b-4116-b30e-edcddbb79780)
 - gobuster 사용 시 p1, p2 같은 결과를 얻음
 - 해당 규칙이 설정 파일에서 url을 재정의 함
   - ##<action type=Rewrite" url="index.php?p={R:1}" appendQueryString="true" />
