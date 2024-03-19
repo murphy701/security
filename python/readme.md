@@ -4,3 +4,5 @@
   - hack the box-zoneminder에 관한 exploit code
 - simple_crawler.py
   - 디시인사이드 웹 크롤링 프로그램
+- crack1.py, crack_hash.py
+  - hash 값을 크랙하는 프로그램
