@@ -5,7 +5,7 @@
   - 443:webmail(roundcube)
   - 8080:login, upload
   - RPC
-<br>
+<br></br>
 - 파일 업로드 부분이 있어서 웹쉘 업로드를 시도하였지만 거부당함
   - 이미지 파일로 만들고 올리는 것으로 시도함
   - touch exploit.jpg; echo test>exploit.jpg로 파일 생성
