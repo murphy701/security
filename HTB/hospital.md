@@ -7,8 +7,6 @@
   - RPC
 <br>
 - 파일 업로드 부분이 있어서 웹쉘 업로드를 시도하였지만 거부당함
-  ![upload](https://github.com/murphy701/security/assets/50907298/6b5fc513-7e63-4d9e-908f-e14b8dd67c86)
-
   - 이미지 파일로 만들고 올리는 것으로 시도함
   - touch exploit.jpg; echo test>exploit.jpg로 파일 생성
   - https://github.com/flozz/p0wny-shell?source=post_page-----887fd3d6fee9
