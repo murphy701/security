@@ -31,7 +31,7 @@ htb: headless
   - 소스 보기에서 코드 검사
   - DOM에 동적으로 삽입 되는 경우 찾기
 - /bin/bash -p
-  - bash shell을 privileged 옵션으로 실
+  - bash shell을 privileged 옵션으로 실행
 - sudo -l
   - 현재 사용자가 sudo로 실행할 수 있는 프로그램 나열
   - pw없이 sudo 사용할 수 있는 프로그램도 나열
