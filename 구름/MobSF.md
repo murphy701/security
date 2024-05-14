@@ -1,0 +1,7 @@
+- MobSF 설치 과정 정리
+- python3 10~12미만
+  - 3.11버전 설치
+- openssl 설치
+- visual studio build-tools설치
+- setup.bat 실행
+- run.bat 실행 후 localhost:8000으로 접속 
