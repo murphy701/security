@@ -2,10 +2,12 @@
   - 프로젝트 계획 수립
     - 이론 정리, syn스캐너 구현, 포트 스캐너 구현, 서비스 스캐너 구현, 프로토콜 별 서비스 이해
   - 업무 분담
-    - 안대현: DB, 보고서 -db_scan.py
-    - 양성혁: ssh, dns -scan.py(여러 기능을 합쳐 구현한 상태)
-    - 이지원: ftp, smtp -ftp_smtp_scan.py
-    - 이효원: http, https -http_scan.py
+> |                    Name                    |  맡은 부분  |  구현한 프로그램 |
+> | :----------------------------------------: | :---------: | :-------------:|
+> | 안대현 | DB, 보고서 | db_scan.py|
+> | 양성혁 | ssh, dns | scan.py |
+> | 이지원 | ftp, smtp | ftp_smtp_scan.py |
+> | 이효원 | http, https | http_scan.py |
   - 산출물 확정: 서비스 포트 스캐너
   - 아이디어: gui버전, ip 바꿔가며 스캔, 스캔 속도 조절, aws에서 사용 가능한 스캐너
 
