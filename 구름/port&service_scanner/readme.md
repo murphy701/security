@@ -2,10 +2,10 @@
   - 프로젝트 계획 수립
     - 이론 정리, syn스캐너 구현, 포트 스캐너 구현, 서비스 스캐너 구현, 프로토콜 별 서비스 이해
   - 업무 분담
-    - 안대현: DB, 보고서
-    - 양성혁: ssh, dns
-    - 이지원: ftp, smtp
-    - 이효원: http, https
+    - 안대현: DB, 보고서 -db_scan.py
+    - 양성혁: ssh, dns -scan.py(여러 기능을 합쳐 구현한 상태)
+    - 이지원: ftp, smtp -ftp_smtp_scan.py
+    - 이효원: http, https -http_scan.py
   - 산출물 확정: 서비스 포트 스캐너
   - 아이디어: gui버전, ip 바꿔가며 스캔, 스캔 속도 조절, aws에서 사용 가능한 스캐너
 
@@ -19,7 +19,7 @@
 
 ### 최종 점검
 - db_scan.py
-  - 서비스 검증 로직에 문제가 있어 3306 mysql 포트가 unknwon으로 표시
+  - 서비스 검증 로직에 문제가 있어 3306 mysql 포트가 unknwon으로 표시됨
 - final.py
   - port_scan(target, port): 주어진 대상 IP 주소와 포트에 대해 TCP 연결을 시도하여 포트가 열려 있는지 확인한다. 만약 포트가 열려 있다면 해당 포트를 반환한다.
   - service_scan(target, port): 주어진 대상 IP 주소와 포트에 대해 서비스를 스캔한다. 주어진 포트에 어떤 서비스가 열려 있는지 확인하고, 서비스를 식별하여 해당 서비스와 포트 번호를 반환한다.
