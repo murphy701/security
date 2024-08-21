@@ -35,7 +35,7 @@ process_apk(apk_path, encrypted_dex_filename):<br>
 ### 에뮬레이터 연동 및 탐지 우회
 - 설정 파일 내 에뮬레이터 정보 기입
   - genymotion 사용, x86 안드로이드 9.0v(arm translation tool 설치)
-    - 동적 분석 환경설정 시연:
+    - 동적 분석 환경설정 시연:![2024-05-22 17-07-19 (1)](https://github.com/user-attachments/assets/f6a58b0c-01e3-4e6e-ba35-e30dad90b09d)
 - MobSF로 에뮬레이터/앱 컨트롤
 - 에뮬레이터 탐지 우회(frida/non-frida)
   - (https://github.com/murphy701/security/blob/main/%EA%B5%AC%EB%A6%84/mobSF/frida.md)
