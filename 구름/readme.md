@@ -10,4 +10,5 @@
 > 개발 기간 2024.06.01 ~ 2024.06.11
 > > 프로젝트 설명(https://github.com/murphy701/security/tree/main/%EA%B5%AC%EB%A6%84/darkweb_OSINT)
 ## 4. 🛡️ NIDS_AI
-> 
+> 개발 기간 2024.07.03 ~ 2024.08.16
+>> 프로젝트 설명(https://github.com/murphy701/security/blob/main/%EA%B5%AC%EB%A6%84/NIDS_AI/readme.md)
