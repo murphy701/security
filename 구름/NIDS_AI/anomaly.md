@@ -132,5 +132,5 @@ https://github.com/murphy701/security/blob/main/%EA%B5%AC%EB%A6%84/NIDS_AI/anoma
 - 패킷 처리: packet_callback 함수가 필요 정보를 추출하고 통계 업데이트
 - 예측 요청: fastAPI 서버로 POST 요청하여 예측을 수행
 - 통계 리셋: 1분 간격으로 통계 리셋하여 최신 정보를 유지
-- 다음과 같은 결과를 확인할 수 있고 prediction 값이 0이면 정상 1이면 이상을 탐지한 것을 나타냄
+- 다음과 같은 결과를 확인할 수 있고 prediction 값이 0이면 정상, 1이면 이상을 탐지한 것을 나타냄
 ![image](https://github.com/user-attachments/assets/93215953-83ad-4d0c-877c-6e568ac02c80)
