@@ -13,7 +13,7 @@
 - 행위탐지 기반 nids
   - https://github.com/murphy701/security/blob/main/%EA%B5%AC%EB%A6%84/NIDS_AI/anomaly.md
 - 도커 인프라 구축 개발 문서
-  - 
+  - https://github.com/murphy701/security/blob/main/%EA%B5%AC%EB%A6%84/NIDS_AI/docker_setting.md
 
 - 개선해야 할 점
   - 프로젝트 시간 부족으로 행위 기반 탐지ndis와 시그니처 기반 탐지 nids를 통합하지 못하였음
